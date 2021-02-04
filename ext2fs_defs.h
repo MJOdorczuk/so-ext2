@@ -4,6 +4,7 @@
  * namely: ext2fs.h, ext2fs_dinode.h, ext2fs_dir.h */
 
 #include <sys/cdefs.h>
+#include <sys/param.h>
 #include <stdint.h>
 
 /*
@@ -213,7 +214,7 @@ enum {
  * de_name field, plus enough space for the name without a terminating null
  * byte, rounded up to a 4 byte boundary.
  */
-#define EXT2_DIRSIZE(len) roundup2(8 + len, 4)
+#define EXT2_DIRSIZE(len) roundup(8 + len, 4)
 
 #define EXT2_MAXNAMLEN 255
 
